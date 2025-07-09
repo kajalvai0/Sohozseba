@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সহজ সেবা- আপনার স্থানীয় সেবা প্রদানকারী</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581093450022-32893494e090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .language-switcher {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 120px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .language-switcher:hover .language-dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-green-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-hands-helping text-2xl"></i>
+                <h1 class="text-xl font-bold">শেবা.xyz</h1>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-green-200">হোম</a>
+                <a href="#" class="hover:text-green-200">সেবাসমূহ</a>
+                <a href="#" class="hover:text-green-200">কিভাবে কাজ করে</a>
+                <a href="#" class="hover:text-green-200">আমাদের সম্পর্কে</a>
+                <a href="#" class="hover:text-green-200">যোগাযোগ</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="language-switcher">
+                    <button class="flex items-center space-x-1">
+                        <i class="fas fa-language"></i>
+                        <span>বাংলা</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="language-dropdown mt-2 p-2">
+                        <a href="#" class="block px-2 py-1 hover:bg-gray-100">English</a>
+                        <a href="#" class="block px-2 py-1 hover:bg-gray-100">বাংলা</a>
+                    </div>
+                </div>
+                <button class="bg-white text-green-600 px-4 py-1 rounded-full font-medium hover:bg-green-50">
+                    লগইন
+                </button>
+                <button class="md:hidden" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-green-700 px-4 py-2" id="mobile-menu">
+            <a href="#" class="block py-2 border-b border-green-800">হোম</a>
+            <a href="#" class="block py-2 border-b border-green-800">সেবাসমূহ</a>
+            <a href="#" class="block py-2 border-b border-green-800">কিভাবে কাজ করে</a>
+            <a href="#" class="block py-2 border-b border-green-800">আমাদের সম্পর্কে</a>
+            <a href="#" class="block py-2">যোগাযোগ</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">আপনার স্থানীয় সেবা প্রদানকারী খুঁজুন</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">গ্রামীণ এলাকার জন্য নির্ভরযোগ্য সেবা প্রদানকারীদের সাথে সংযুক্ত হোন</p>
+            
+            <div class="max-w-2xl mx-auto bg-white rounded-full p-1 shadow-lg flex">
+                <input type="text" placeholder="আপনি কোন সেবা খুঁজছেন? (যেমন: প্লাম্বার, বৈদ্যুতিক)" 
+                       class="flex-grow px-4 py-3 rounded-l-full text-gray-800 focus:outline-none">
+                <select class="bg-gray-100 px-3 text-gray-700 border-l border-gray-300 focus:outline-none">
+                    <option>আপনার এলাকা</option>
+                    <option>ঢাকা</option>
+                    <option>চট্টগ্রাম</option>
+                    <option>সিলেট</option>
+                    <option>রাজশাহী</option>
+                </select>
+                <button class="bg-green-600 text-white px-6 py-3 rounded-r-full font-medium hover:bg-green-700">
+                    <i class="fas fa-search mr-2"></i>খুঁজুন
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">কিভাবে কাজ করে</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-green-50 transition">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">সেবা খুঁজুন</h3>
+                    <p class="text-gray-600">আপনার প্রয়োজনীয় সেবা এবং আপনার এলাকা নির্বাচন করুন</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-green-50 transition">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">সেবাদানকারী বাছাই করুন</h3>
+                    <p class="text-gray-600">রেটিং, মূল্য এবং পর্যালোচনা দেখে সেরা সেবাদানকারী নির্বাচন করুন</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-green-50 transition">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">বুকিং করুন</h3>
+                    <p class="text-gray-600">আপনার সুবিধাজনক সময়ে বুকিং করুন এবং সেবা গ্রহণ করুন</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-gray-800">জনপ্রিয় সেবাসমূহ</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-tools text-blue-600"></i>
+                    </div>
+                    <h3 class="font-medium">ইলেকট্রিশিয়ান</h3>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-faucet text-green-600"></i>
+                    </div>
+                    <h3 class="font-medium">প্লাম্বার</h3>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-paint-roller text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-medium">পেইন্টার</h3>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-motorcycle text-purple-600"></i>
+                    </div>
+                    <h3 class="font-medium">বাইক মেকানিক</h3>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-tshirt text-red-600"></i>
+                    </div>
+                    <h3 class="font-medium">দর্জি</h3>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-cut text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-medium">নাপিত</h3>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-broom text-pink-600"></i>
+                    </div>
+                    <h3 class="font-medium">পরিচ্ছন্নতা কর্মী</h3>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-4 rounded-lg shadow-sm text-center transition duration-300">
+                    <div class="bg-teal-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-tractor text-teal-600"></i>
+                    </div>
+                    <h3 class="font-medium">কৃষি সহায়তা</h3>
+                </a>
+            </div>
+            
+            <div class="text-center mt-8">
+                <button class="bg-green-600 text-white px-6 py-2 rounded-full font-medium hover:bg-green-700">
+                    সব সেবা দেখুন <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">গ্রাহকদের মতামত</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-700 font-bold mr-4">অ</div>
+                        <div>
+                            <h4 class="font-semibold">আব্দুল করিম</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"আমার বাড়ির বৈদ্যুতিক সমস্যার জন্য একজন ভালো ইলেকট্রিশিয়ান খুঁজে পেয়েছি এই ওয়েবসাইট থেকে। খুব দ্রুত সেবা পেয়েছি এবং দামও যুক্তিসঙ্গত ছিল।"</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-200 flex items-center justify-center text-blue-700 font-bold mr-4">স</div>
+                        <div>
+                            <h4 class="font-semibold">সুমাইয়া আক্তার</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"গ্রামে থাকি বলে আগে সেলাইয়ের জন্য শহরে যেতে হতো। এখন এই ওয়েবসাইট থেকে স্থানীয় দর্জি খুঁজে পেয়ে খুব সুবিধা হচ্ছে।"</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center text-purple-700 font-bold mr-4">ম</div>
+                        <div>
+                            <h4 class="font-semibold">মোঃ রফিকুল ইসলাম</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"আমার বাইকের সমস্যা ছিল, এই সাইট থেকে একজন ভালো মেকানিক পেয়েছি যিনি বাড়িতে এসেই সার্ভিস দিয়েছেন। সময় এবং টাকা দুটোই বেঁচেছে।"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download -->
+    <section class="py-12 bg-green-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">আমাদের মোবাইল অ্যাপ ডাউনলোড করুন</h2>
+                    <p class="mb-6">আপনার স্মার্টফোনে শেবা.xyz অ্যাপ ডাউনলোড করুন এবং আরও সহজে সেবা খুঁজুন ও বুকিং করুন।</p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="bg-black text-white px-4 py-2 rounded-lg flex items-center">
+                            <i class="fab fa-apple text-2xl mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="font-semibold">App Store</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="bg-black text-white px-4 py-2 rounded-lg flex items-center">
+                            <i class="fab fa-google-play text-xl mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="font-semibold">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/22/12/07/imac-1999636_1280.png" alt="Mobile App" class="w-64 md:w-80">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-hands-helping mr-2"></i> শেবা.xyz
+                    </h3>
+                    <p class="text-gray-400">গ্রামীণ বাংলাদেশের জন্য সেবা প্রদানকারী প্ল্যাটফর্ম। আপনার প্রয়োজনীয় সেবা সহজেই খুঁজে নিন।</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">লিংক</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">হোম</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">সেবাসমূহ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">কিভাবে কাজ করে</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">সেবাসমূহ</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">ইলেকট্রিশিয়ান</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">প্লাম্বার</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">পেইন্টার</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">বাইক মেকানিক</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">দর্জি</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">যোগাযোগ</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i> ১২৩ গ্রাম রোড, ঢাকা
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i> +৮৮০ ১৭১২ ৩৪৫৬৭৮
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> info@sheba.xyz
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div cla
