@@ -86,127 +86,58 @@
       <img src="https://cdn-icons-png.flaticon.com/128/3082/3082010.png" width="60" alt="বিদ্যুৎ" />
       <h3>বিদ্যুৎ মেরামত</h3>
       <div class="rating">★★★★★</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=বিদ্যুৎ মেরামত">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/3550/3550373.png" width="60" alt="দর্জি" />
       <h3>দর্জি সেবা</h3>
       <div class="rating">★★★★☆</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=দর্জি সেবা">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/2965/2965567.png" width="60" alt="ওষুধ" />
       <h3>ওষুধ ডেলিভারি</h3>
       <div class="rating">★★★★★</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=ওষুধ ডেলিভারি">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/535/535188.png" width="60" alt="শিক্ষা" />
       <h3>হোম টিউটর</h3>
       <div class="rating">★★★☆☆</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=হোম টিউটর">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/1933/1933103.png" width="60" alt="পরিবহন" />
       <h3>রিকশা/ভ্যান ভাড়া</h3>
       <div class="rating">★★★★☆</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=রিকশা/ভ্যান ভাড়া">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/679/679720.png" width="60" alt="পরিচ্ছন্নতা" />
       <h3>বাড়ি পরিষ্কার</h3>
       <div class="rating">★★★★★</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=বাড়ি পরিষ্কার">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/1532/1532669.png" width="60" alt="টিউবওয়েল" />
       <h3>টিউবওয়েল মেরামত</h3>
       <div class="rating">★★★★☆</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=টিউবওয়েল মেরামত">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/2838/2838912.png" width="60" alt="কৃষি" />
       <h3>কৃষি পরামর্শ</h3>
       <div class="rating">★★★☆☆</div>
-      <a class="btn" href="#">বুক করুন</a>
+      <a class="btn" href="booking.html?service=কৃষি পরামর্শ">বুক করুন</a>
     </div>
     <div class="card">
       <img src="https://cdn-icons-png.flaticon.com/128/1424/1424457.png" width="60" alt="হেল্পলাইন" />
       <h3>জরুরি হেল্পলাইন</h3>
       <div class="rating">★★★★★</div>
-      <a class="btn" href="#">কল করুন</a>
+      <a class="btn" href="booking.html?service=জরুরি হেল্পলাইন">কল করুন</a>
     </div>
-  </section>  <section class="booking-form">
-    <h2>📋 সেবা বুকিং ফর্ম</h2>
-    <input type="text" placeholder="আপনার নাম"><br>
-    <input type="text" placeholder="ঠিকানা"><br>
-    <input id="phone" type="tel" placeholder="মোবাইল নম্বর"><br>
-<div id="recaptcha-container"></div>
-<a class="btn" onclick="sendOTP()">📨 OTP পাঠান</a>
-
-<input id="otp" type="text" placeholder="OTP দিন"><br>
-<a class="btn" onclick="verifyOTP()">🔐 OTP যাচাই করুন</a>
   </section>  <footer>
     &copy; ২০২৫ সহজসেবা | বদলগাছি, নওগাঁ | ডিজাইন: আর এস টি এস বিডি
   </footer>
 </body>
 </html>
-
-<!-- Firebase Scripts -->
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-
-<script>
-  // 🔐 তোমার Firebase Config
-  const firebaseConfig = {
-    apiKey: "AIzaSyC_b64jaFSkp_g1kSHzspm-sXN-5v-fGYk",
-    authDomain: "sohojseba-8441f.firebaseapp.com",
-    projectId: "sohojseba-8441f",
-    storageBucket: "sohojseba-8441f.firebasestorage.app",
-    messagingSenderId: "668966903354",
-    appId: "1:668966903354:web:4ffce909b56a6c4d629f03",
-    measurementId: "G-XCD8RVVC9G"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-
-  // ✅ OTP পাঠানো
-  function sendOTP() {
-    const phone = document.getElementById('phone').value;
-    const appVerifier = window.recaptchaVerifier;
-
-    auth.signInWithPhoneNumber('+88' + phone, appVerifier)
-      .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        alert('📩 OTP পাঠানো হয়েছে! দয়া করে নিচে দিন।');
-      })
-      .catch((error) => {
-        console.error(error);
-        alert('❌ OTP পাঠানো যায়নি, মোবাইল নম্বর বা সংযোগ চেক করুন।');
-      });
-  }
-
-  // ✅ OTP যাচাই
-  function verifyOTP() {
-    const code = document.getElementById('otp').value;
-    confirmationResult.confirm(code)
-      .then((result) => {
-        alert('✅ সফলভাবে লগইন হয়েছে!');
-        // এখানে redirect বা UI আপডেট করতে পারো
-      })
-      .catch((error) => {
-        alert('❌ ভুল OTP! আবার চেষ্টা করুন।');
-      });
-  }
-
-  // ✅ Invisible reCAPTCHA
-  window.onload = function () {
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-      'size': 'invisible',
-      'callback': function (response) {
-        console.log('✔️ reCAPTCHA solved');
-      }
-    });
-  };
-</script>
