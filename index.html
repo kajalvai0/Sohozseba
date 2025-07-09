@@ -375,3 +375,62 @@
             </div>
             
             <div cla
+
+                <!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+<script>
+  // 🔐 তোমার Firebase Config
+  const firebaseConfig = {
+    apiKey: "AIzaSyC_b64jaFSkp_g1kSHzspm-sXN-5v-fGYk",
+    authDomain: "sohojseba-8441f.firebaseapp.com",
+    projectId: "sohojseba-8441f",
+    storageBucket: "sohojseba-8441f.firebasestorage.app",
+    messagingSenderId: "668966903354",
+    appId: "1:668966903354:web:4ffce909b56a6c4d629f03",
+    measurementId: "G-XCD8RVVC9G"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  // ✅ OTP পাঠানো
+  function sendOTP() {
+    const phone = document.getElementById('phone').value;
+    const appVerifier = window.recaptchaVerifier;
+
+    auth.signInWithPhoneNumber('+88' + phone, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        alert('📩 OTP পাঠানো হয়েছে! দয়া করে নিচে দিন।');
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('❌ OTP পাঠানো যায়নি, মোবাইল নম্বর বা সংযোগ চেক করুন।');
+      });
+  }
+
+  // ✅ OTP যাচাই
+  function verifyOTP() {
+    const code = document.getElementById('otp').value;
+    confirmationResult.confirm(code)
+      .then((result) => {
+        alert('✅ সফলভাবে লগইন হয়েছে!');
+        // এখানে redirect বা UI আপডেট করতে পারো
+      })
+      .catch((error) => {
+        alert('❌ ভুল OTP! আবার চেষ্টা করুন।');
+      });
+  }
+
+  // ✅ Invisible reCAPTCHA
+  window.onload = function () {
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+      'size': 'invisible',
+      'callback': function (response) {
+        console.log('✔️ reCAPTCHA solved');
+      }
+    });
+  };
+</script>
