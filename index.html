@@ -73,7 +73,7 @@
                         <a href="#" class="block px-2 py-1 hover:bg-gray-100">বাংলা</a>
                     </div>
                 </div>
-                <button class="bg-white text-green-600 px-4 py-1 rounded-full font-medium hover:bg-green-50">
+                <button id="loginBtn" class="bg-white text-green-600 px-4 py-1 rounded-full font-medium hover:bg-green-50">
                     লগইন
                 </button>
                 <button class="md:hidden" id="mobile-menu-button">
@@ -99,16 +99,20 @@
             <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">গ্রামীণ এলাকার জন্য নির্ভরযোগ্য সেবা প্রদানকারীদের সাথে সংযুক্ত হোন</p>
             
             <div class="max-w-2xl mx-auto bg-white rounded-full p-1 shadow-lg flex">
-                <input type="text" placeholder="আপনি কোন সেবা খুঁজছেন? (যেমন: প্লাম্বার, বৈদ্যুতিক)" 
+                <input type="text" id="searchInput" placeholder="আপনি কোন সেবা খুঁজছেন? (যেমন: প্লাম্বার, বৈদ্যুতিক)" 
                        class="flex-grow px-4 py-3 rounded-l-full text-gray-800 focus:outline-none">
-                <select class="bg-gray-100 px-3 text-gray-700 border-l border-gray-300 focus:outline-none">
+                <select id="locationSelect" class="bg-gray-100 px-3 text-gray-700 border-l border-gray-300 focus:outline-none">
                     <option>আপনার এলাকা</option>
                     <option>ঢাকা</option>
                     <option>চট্টগ্রাম</option>
                     <option>সিলেট</option>
                     <option>রাজশাহী</option>
+                    <option>খুলনা</option>
+                    <option>বরিশাল</option>
+                    <option>রংপুর</option>
+                    <option>ময়মনসিংহ</option>
                 </select>
-                <button class="bg-green-600 text-white px-6 py-3 rounded-r-full font-medium hover:bg-green-700">
+                <button id="searchBtn" class="bg-green-600 text-white px-6 py-3 rounded-r-full font-medium hover:bg-green-700">
                     <i class="fas fa-search mr-2"></i>খুঁজুন
                 </button>
             </div>
@@ -288,7 +292,7 @@
                     <p class="mb-6">আপনার স্মার্টফোনে শেবা.xyz অ্যাপ ডাউনলোড করুন এবং আরও সহজে সেবা খুঁজুন ও বুকিং করুন।</p>
                     
                     <div class="flex flex-wrap gap-4">
-                        <a href="#" class="bg-black text-white px-4 py-2 rounded-lg flex items-center">
+                        <a href="#" class="bg-black text-white px-4 py-2 rounded-lg flex items-center hover:bg-gray-800 transition">
                             <i class="fab fa-apple text-2xl mr-2"></i>
                             <div class="text-left">
                                 <div class="text-xs">Download on the</div>
@@ -296,7 +300,7 @@
                             </div>
                         </a>
                         
-                        <a href="#" class="bg-black text-white px-4 py-2 rounded-lg flex items-center">
+                        <a href="#" class="bg-black text-white px-4 py-2 rounded-lg flex items-center hover:bg-gray-800 transition">
                             <i class="fab fa-google-play text-xl mr-2"></i>
                             <div class="text-left">
                                 <div class="text-xs">Get it on</div>
@@ -327,22 +331,22 @@
                 <div>
                     <h4 class="font-semibold text-lg mb-4">লিংক</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">হোম</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">সেবাসমূহ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">কিভাবে কাজ করে</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">আমাদের সম্পর্কে</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">যোগাযোগ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">হোম</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">সেবাসমূহ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">কিভাবে কাজ করে</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">যোগাযোগ</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold text-lg mb-4">সেবাসমূহ</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">ইলেকট্রিশিয়ান</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">প্লাম্বার</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">পেইন্টার</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">বাইক মেকানিক</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">দর্জি</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">ইলেকট্রিশিয়ান</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">প্লাম্বার</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">পেইন্টার</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">বাইক মেকানিক</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">দর্জি</a></li>
                     </ul>
                 </div>
                 
@@ -361,76 +365,227 @@
                     </ul>
                     
                     <div class="mt-4 flex space-x-4">
-                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600">
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600 transition">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-400">
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-400 transition">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600">
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
             </div>
             
-            <div cla
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; ২০২৪ শেবা.xyz। সকল অধিকার সংরক্ষিত। | <a href="#" class="hover:text-white transition">গোপনীয়তা নীতি</a> | <a href="#" class="hover:text-white transition">শর্তাবলী</a></p>
+            </div>
+        </div>
+    </footer>
 
-                <!-- Firebase Scripts -->
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">লগইন করুন</h2>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="phoneStep">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">মোবাইল নম্বর</label>
+                    <div class="flex">
+                        <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md">
+                            +৮৮
+                        </span>
+                        <input type="tel" id="phone" class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-green-500 focus:border-green-500 block flex-1 min-w-0 w-full text-sm p-2.5" placeholder="০১৭১২৩৪৫৬১৮">
+                    </div>
+                </div>
+                
+                <button onclick="sendOTP()" class="w-full bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition">
+                    OTP পাঠান
+                </button>
+            </div>
+            
+            <div id="otpStep" class="hidden">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">OTP কোড</label>
+                    <input type="text" id="otp" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="৬ সংখ্যার কোড">
+                </div>
+                
+                <button onclick="verifyOTP()" class="w-full bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition">
+                    যাচাই করুন
+                </button>
+                
+                <button onclick="showPhoneStep()" class="w-full mt-2 text-green-600 hover:text-green-700 transition">
+                    পুনরায় নম্বর দিন
+                </button>
+            </div>
+            
+            <div id="recaptcha-container"></div>
+        </div>
+    </div>
 
-<script>
-  // 🔐 তোমার Firebase Config
-  const firebaseConfig = {
-    apiKey: "AIzaSyC_b64jaFSkp_g1kSHzspm-sXN-5v-fGYk",
-    authDomain: "sohojseba-8441f.firebaseapp.com",
-    projectId: "sohojseba-8441f",
-    storageBucket: "sohojseba-8441f.firebasestorage.app",
-    messagingSenderId: "668966903354",
-    appId: "1:668966903354:web:4ffce909b56a6c4d629f03",
-    measurementId: "G-XCD8RVVC9G"
-  };
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
 
-  // ✅ OTP পাঠানো
-  function sendOTP() {
-    const phone = document.getElementById('phone').value;
-    const appVerifier = window.recaptchaVerifier;
+        // Modal Functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
 
-    auth.signInWithPhoneNumber('+88' + phone, appVerifier)
-      .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        alert('📩 OTP পাঠানো হয়েছে! দয়া করে নিচে দিন।');
-      })
-      .catch((error) => {
-        console.error(error);
-        alert('❌ OTP পাঠানো যায়নি, মোবাইল নম্বর বা সংযোগ চেক করুন।');
-      });
-  }
+        // Open modal when login button is clicked
+        loginBtn.addEventListener('click', function() {
+            loginModal.classList.remove('hidden');
+        });
 
-  // ✅ OTP যাচাই
-  function verifyOTP() {
-    const code = document.getElementById('otp').value;
-    confirmationResult.confirm(code)
-      .then((result) => {
-        alert('✅ সফলভাবে লগইন হয়েছে!');
-        // এখানে redirect বা UI আপডেট করতে পারো
-      })
-      .catch((error) => {
-        alert('❌ ভুল OTP! আবার চেষ্টা করুন।');
-      });
-  }
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            loginModal.classList.add('hidden');
+            showPhoneStep();
+        });
 
-  // ✅ Invisible reCAPTCHA
-  window.onload = function () {
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-      'size': 'invisible',
-      'callback': function (response) {
-        console.log('✔️ reCAPTCHA solved');
-      }
-    });
-  };
-</script>
+        // Close modal when clicking outside
+        loginModal.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.classList.add('hidden');
+                showPhoneStep();
+            }
+        });
+
+        function showPhoneStep() {
+            document.getElementById('phoneStep').classList.remove('hidden');
+            document.getElementById('otpStep').classList.add('hidden');
+        }
+
+        function showOtpStep() {
+            document.getElementById('phoneStep').classList.add('hidden');
+            document.getElementById('otpStep').classList.remove('hidden');
+        }
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_b64jaFSkp_g1kSHzspm-sXN-5v-fGYk",
+            authDomain: "sohojseba-8441f.firebaseapp.com",
+            projectId: "sohojseba-8441f",
+            storageBucket: "sohojseba-8441f.firebasestorage.app",
+            messagingSenderId: "668966903354",
+            appId: "1:668966903354:web:4ffce909b56a6c4d629f03",
+            measurementId: "G-XCD8RVVC9G"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Send OTP
+        function sendOTP() {
+            const phone = document.getElementById('phone').value.trim();
+            if (!phone) {
+                alert('❌ মোবাইল নম্বর দিন');
+                return;
+            }
+            
+            const appVerifier = window.recaptchaVerifier;
+            const fullPhone = '+88' + phone;
+
+            auth.signInWithPhoneNumber(fullPhone, appVerifier)
+                .then((confirmationResult) => {
+                    window.confirmationResult = confirmationResult;
+                    showOtpStep();
+                    alert('📩 OTP পাঠানো হয়েছে! দয়া করে নিচে দিন।');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert('❌ OTP পাঠানো যায়নি, মোবাইল নম্বর বা সংযোগ চেক করুন।');
+                });
+        }
+
+        // Verify OTP
+        function verifyOTP() {
+            const code = document.getElementById('otp').value.trim();
+            if (!code) {
+                alert('❌ OTP কোড দিন');
+                return;
+            }
+
+            window.confirmationResult.confirm(code)
+                .then((result) => {
+                    alert('✅ সফলভাবে লগইন হয়েছে!');
+                    loginModal.classList.add('hidden');
+                    showPhoneStep();
+                    // Update UI to show logged in state
+                    loginBtn.textContent = 'প্রোফাইল';
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert('❌ ভুল OTP! আবার চেষ্টা করুন।');
+                });
+        }
+
+        // Initialize reCAPTCHA
+        window.onload = function () {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible',
+                'callback': function (response) {
+                    console.log('✔️ reCAPTCHA solved');
+                }
+            });
+        };
+
+        // Search functionality
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const searchInput = document.getElementById('searchInput');
+            const locationSelect = document.getElementById('locationSelect');
+            
+            if (searchInput.value.trim()) {
+                alert(`"${searchInput.value}" সেবা খোঁজা হচ্ছে ${locationSelect.value} এলাকায়...`);
+                // Here you would implement actual search functionality
+            } else {
+                alert('দয়া করে একটি সেবা নির্বাচন করুন');
+            }
+        });
+
+        // Service card click handlers
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const serviceName = this.querySelector('h3').textContent;
+                alert(`${serviceName} সেবার জন্য সেবাদানকারী খোঁজা হচ্ছে...`);
+                // Here you would navigate to service providers list
+            });
+        });
+
+        // Enter key support for search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('searchBtn').click();
+            }
+        });
+
+        // Enter key support for phone input
+        document.getElementById('phone').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendOTP();
+            }
+        });
+
+        // Enter key support for OTP input
+        document.getElementById('otp').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                verifyOTP();
+            }
+        });
+    </script>
+</body>
+</html>
