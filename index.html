@@ -1,143 +1,787 @@
-<!DOCTYPE html><html lang="bn">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>সহজসেবা | বদলগাছি নওগাঁর জন্য অনলাইন সেবা</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+    :root {
+      --primary: #27ae60;
+      --primary-dark: #219653;
+      --secondary: #2ecc71;
+      --accent: #f1c40f;
+      --light: #f9f9f9;
+      --dark: #333;
+      --gray: #777;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
     }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Header Styles */
     header {
-      background-color: #27ae60;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: white;
       padding: 1rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    .search-section, .location-section, .booking-form {
-      padding: 1rem;
-      text-align: center;
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
     }
-    input[type="text"], select, input[type="tel"] {
-      padding: 0.5rem;
-      width: 80%;
-      max-width: 400px;
-      margin-bottom: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    
+    .logo i {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: white;
+      padding: 0.8rem 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 82px;
+      z-index: 99;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .quick-links {
+      display: flex;
       gap: 1rem;
-      padding: 1rem;
     }
-    .card {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .card h3 {
-      margin: 0.5rem 0 0.3rem;
-    }
-    .rating {
-      color: gold;
-      font-size: 1rem;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 0.5rem;
+    
+    .quick-link {
+      background-color: var(--primary);
+      color: white;
       padding: 0.5rem 1rem;
-      background: #2ecc71;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .quick-link:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 1rem auto;
+      padding: 0 1rem;
+    }
+    
+    .location-section, .search-section {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 1.5rem;
+    }
+    
+    .location-section h2, .search-section h2 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.3rem;
+    }
+    
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    
+    .input-container {
+      flex: 1;
+      min-width: 250px;
+      max-width: 450px;
+    }
+    
+    .input-container label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+    
+    input[type="text"], select, input[type="tel"] {
+      padding: 0.8rem 1rem;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Noto Sans Bengali', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    input[type="text"]:focus, select:focus, input[type="tel"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+    }
+    
+    .search-btn {
+      background-color: var(--primary);
       color: white;
       border: none;
-      border-radius: 5px;
-      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-family: 'Noto Sans Bengali', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
+    
+    .search-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Services Section */
+    .services-section {
+      margin-top: 2rem;
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .category-filter {
+      display: flex;
+      gap: 0.8rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+    
+    .category-btn {
+      background-color: #e8f5e9;
+      color: var(--primary-dark);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-family: 'Noto Sans Bengali', sans-serif;
       font-size: 0.9rem;
-      color: #777;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    
+    .category-btn.active, .category-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+    
+    .card h3 {
+      margin: 0.5rem 0;
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+    }
+    
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    
+    .rating {
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .price {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+      width: 100%;
+      font-family: 'Noto Sans Bengali', sans-serif;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-call {
+      background: #e74c3c;
+    }
+    
+    .btn-call:hover {
+      background: #c0392b;
+    }
+    
+    /* Testimonial Section */
+    .testimonial-section {
+      margin: 3rem 0;
+    }
+    
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .testimonial {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .user-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #e0f7fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .testimonial-content {
+      color: var(--dark);
+      font-style: italic;
+      line-height: 1.7;
+    }
+    
+    .testimonial-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1a3c2a 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b0bec5;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .quick-links {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .input-group {
+        flex-direction: column;
+      }
+      
+      .input-container {
+        width: 100%;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .category-filter {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo h1 {
+        font-size: 1.5rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .quick-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+      }
+      
+      .services {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>সহজসেবা</h1>
-    <p>বদলগাছি, নওগাঁর জন্য সহজ অনলাইন সেবা</p>
-  </header>  <section class="location-section">
-    <label for="location">📍 আপনার এলাকা:</label><br>
-    <select id="location">
-      <option>বদলগাছি সদর</option>
-      <option>আধাইপুর</option>
-      <option>নিশিপুর</option>
-      <option>মিঠাপুর</option>
-    </select>
-  </section>  <section class="search-section">
-    <input type="text" placeholder="আপনার প্রয়োজনীয় সেবা লিখুন...">
-  </section>  <section class="services">
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/3082/3082010.png" width="60" alt="বিদ্যুৎ" />
-      <h3>বিদ্যুৎ মেরামত</h3>
-      <div class="rating">★★★★★</div>
-      <a class="btn" href="booking.html?service=বিদ্যুৎ মেরামত">বুক করুন</a>
+    <div class="header-content">
+      <div class="logo">
+        <i class="fas fa-hands-helping"></i>
+        <h1>সহজসেবা</h1>
+      </div>
+      <p>বদলগাছি, নওগাঁর জন্য সহজ অনলাইন সেবা</p>
     </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/3550/3550373.png" width="60" alt="দর্জি" />
-      <h3>দর্জি সেবা</h3>
-      <div class="rating">★★★★☆</div>
-      <a class="btn" href="booking.html?service=দর্জি সেবা">বুক করুন</a>
+  </header>
+  
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="quick-links">
+        <a href="#services" class="quick-link">
+          <i class="fas fa-bolt"></i> জরুরি সেবা
+        </a>
+        <a href="#booking" class="quick-link">
+          <i class="fas fa-calendar-check"></i> সেবা বুকিং
+        </a>
+        <a href="#contact" class="quick-link">
+          <i class="fas fa-headset"></i> সাহায্য চাই
+        </a>
+      </div>
     </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/2965/2965567.png" width="60" alt="ওষুধ" />
-      <h3>ওষুধ ডেলিভারি</h3>
-      <div class="rating">★★★★★</div>
-      <a class="btn" href="booking.html?service=ওষুধ ডেলিভারি">বুক করুন</a>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/535/535188.png" width="60" alt="শিক্ষা" />
-      <h3>হোম টিউটর</h3>
-      <div class="rating">★★★☆☆</div>
-      <a class="btn" href="booking.html?service=হোম টিউটর">বুক করুন</a>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/1933/1933103.png" width="60" alt="পরিবহন" />
-      <h3>রিকশা/ভ্যান ভাড়া</h3>
-      <div class="rating">★★★★☆</div>
-      <a class="btn" href="booking.html?service=রিকশা/ভ্যান ভাড়া">বুক করুন</a>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/679/679720.png" width="60" alt="পরিচ্ছন্নতা" />
-      <h3>বাড়ি পরিষ্কার</h3>
-      <div class="rating">★★★★★</div>
-      <a class="btn" href="booking.html?service=বাড়ি পরিষ্কার">বুক করুন</a>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/1532/1532669.png" width="60" alt="টিউবওয়েল" />
-      <h3>টিউবওয়েল মেরামত</h3>
-      <div class="rating">★★★★☆</div>
-      <a class="btn" href="booking.html?service=টিউবওয়েল মেরামত">বুক করুন</a>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/2838/2838912.png" width="60" alt="কৃষি" />
-      <h3>কৃষি পরামর্শ</h3>
-      <div class="rating">★★★☆☆</div>
-      <a class="btn" href="booking.html?service=কৃষি পরামর্শ">বুক করুন</a>
-    </div>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/1424/1424457.png" width="60" alt="হেল্পলাইন" />
-      <h3>জরুরি হেল্পলাইন</h3>
-      <div class="rating">★★★★★</div>
-      <a class="btn" href="booking.html?service=জরুরি হেল্পলাইন">কল করুন</a>
-    </div>
-  </section>  <footer>
-    &copy; ২০২৫ সহজসেবা | বদলগাছি, নওগাঁ | ডিজাইন: আর এস টি এস বিডি
-  </footer>
-</body>
-</html>
+  </nav>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Location Section -->
+    <section class="location-section">
+      <h2><i class="fas fa-map-marker-alt"></i> আপনার এলাকা নির্বাচন করুন</h2>
+      <div class="input-group">
+        <div class="input-container">
+          <label for="location">📍 আপনার ইউনিয়ন/গ্রাম:</label>
+          <select id="location">
+            <option>বদলগাছি সদর</option>
+            <option>আধাইপুর</option>
+            <option>নিশিপুর</option>
+            <option>মিঠাপুর</option>
+            <option>বালুভরা</option>
+            <option>পাহাড়পুর</option>
+          </select>
+        </div>
+        
+        <div class="input-container">
+          <label for="village">📍 আপনার গ্রাম/মহল্লা:</label>
+          <input type="text" id="village" placeholder="আপনার গ্রামের নাম লিখুন...">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Search Section -->
+    <section class="search-section">
+      <h2><i class="fas fa-search"></i> সেবা খুঁজুন</h2>
+      <div class="input-group">
+        <div class="input-container">
+          <input type="text" placeholder="আপনার প্রয়োজনীয় সেবা লিখুন...">
+        </div>
+        <button class="search-btn">
+          <i class="fas fa-search"></i> সেবা খুঁজুন
+        </button>
+      </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-concierge-bell"></i> জনপ্রিয় সেবাসমূহ</h2>
+        <div class="category-filter">
+          <button class="category-btn active">সকল সেবা</button>
+          <button class="category-btn">ঘরোয়া সেবা</button>
+          <button class="category-btn">স্বাস্থ্য সেবা</button>
+          <button class="category-btn">পরিবহন</button>
+          <button class="category-btn">শিক্ষা</button>
+          <button class="category-btn">জরুরি</button>
+        </div>
+      </div>
+      
+      <div class="services">
+        <!-- Electricity Repair -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>বিদ্যুৎ মেরামত</h3>
+          <p class="service-desc">বাসা-বাড়ির সকল ধরনের বৈদ্যুতিক সমস্যার সমাধান</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <span>(৪২ রিভিউ)</span>
+          </div>
+          <p class="price">শুরুতে ৳২০০</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Tailor Service -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <h3>দর্জি সেবা</h3>
+          <p class="service-desc">বাড়িতে এসে জামা-কাপড় সেলাই ও মেরামতের সেবা</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(৩৮ রিভিউ)</span>
+          </div>
+          <p class="price">শুরুতে ৳১৫০</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Medicine Delivery -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-pills"></i>
+          </div>
+          <h3>ওষুধ ডেলিভারি</h3>
+          <p class="service-desc">বাড়িতে বসে ওষুধ অর্ডার করুন, ১ ঘণ্টার মধ্যে পেয়ে যান</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <span>(৬৫ রিভিউ)</span>
+          </div>
+          <p class="price">ডেলিভারি চার্জ ৳৩০</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Home Tutor -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3>হোম টিউটর</h3>
+          <p class="service-desc">প্রাইমারি থেকে এইচএসসি পর্যন্ত যেকোনো বিষয়ে বাড়িতে টিউশন</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <span>(২৭ রিভিউ)</span>
+          </div>
+          <p class="price">শুরুতে ৳৩০০/ঘণ্টা</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Transport -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-taxi"></i>
+          </div>
+          <h3>রিকশা/ভ্যান ভাড়া</h3>
+          <p class="service-desc">স্থানীয় যেকোনো গন্তব্যে রিকশা বা ভ্যান ভাড়া করুন</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <span>(৫৩ রিভিউ)</span>
+          </div>
+          <p class="price">শুরুতে ৳৫০</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Cleaning Service -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-broom"></i>
+          </div>
+          <h3>বাড়ি পরিষ্কার</h3>
+          <p class="service-desc">পেশাদার পরিষ্কারক দ্বারা বাড়ি ও অফিস পরিষ্কারের সেবা</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <span>(৪৭ রিভিউ)</span>
+          </div>
+          <p class="price">শুরুতে ৳৫০০</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Tube Well Repair -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-faucet"></i>
+          </div>
+          <h3>টিউবওয়েল মেরামত</h3>
+          <p class="service-desc">টিউবওয়েলের সকল সমস্যার দ্রুত সমাধান</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(৩৩ রিভিউ)</span>
+          </div>
+          <p class="price">শুরুতে ৳৩০০</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Agriculture Advice -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-tractor"></i>
+          </div>
+          <h3>কৃষি পরামর্শ</h3>
+          <p class="service-desc">কৃষি বিশেষজ্ঞের পরামর্শ ও সমস্যা সমাধান</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <span>(১৮ রিভিউ)</span>
+          </div>
+          <p class="price">ফ্রি পরামর্শ</p>
+          <button class="btn">বুক করুন</button>
+        </div>
+        
+        <!-- Emergency Helpline -->
+        <div class="card">
+          <div class="service-icon">
+            <i class="fas fa-ambulance"></i>
+          </div>
+          <h3>জরুরি হেল্পলাইন</h3>
+          <p class="service-desc">জরুরি স্বা
