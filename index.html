@@ -6,408 +6,7 @@
   <title>সহজসেবা | বদলগাছি নওগাঁর জন্য অনলাইন সেবা</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #27ae60;
-      --primary-dark: #219653;
-      --secondary: #2ecc71;
-      --accent: #f1c40f;
-      --light: #f9f9f9;
-      --dark: #333;
-      --gray: #777;
-      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
-    }
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {
-      font-family: 'Noto Sans Bengali', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-      color: var(--dark);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .logo i { font-size: 2rem; color: var(--accent);}
-    .logo h1 { font-size: 1.8rem; font-weight:700;}
-    header p { font-size: 1.1rem; max-width: 600px;}
-    nav {
-      background-color: white;
-      padding: 0.8rem 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 82px;
-      z-index: 99;
-    }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .quick-links { display:flex; gap:1rem;}
-    .quick-link {
-      background-color: var(--primary);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .quick-link:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-    main {
-      flex: 1;
-      max-width: 1200px;
-      width: 100%;
-      margin: 1rem auto;
-      padding: 0 1rem;
-    }
-    .location-section, .search-section {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: var(--card-shadow);
-      margin-bottom: 1.5rem;
-    }
-    .location-section h2, .search-section h2 {
-      color: var(--primary-dark);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 1.3rem;
-    }
-    .input-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-      margin-top: 1rem;
-    }
-    .input-container {
-      flex: 1;
-      min-width: 250px;
-      max-width: 450px;
-    }
-    .input-container label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: var(--primary-dark);
-    }
-    input[type="text"], select, input[type="tel"] {
-      padding: 0.8rem 1rem;
-      width: 100%;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-    input[type="text"]:focus, select:focus, input[type="tel"]:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(39,174,96,0.2);
-    }
-    .search-btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .search-btn:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .services-section { margin-top: 2rem; }
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    .section-title {
-      color: var(--primary-dark);
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .category-filter {
-      display: flex;
-      gap: 0.8rem;
-      overflow-x: auto;
-      padding: 0.5rem 0;
-    }
-    .category-btn {
-      background-color: #e8f5e9;
-      color: var(--primary-dark);
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-    .category-btn.active, .category-btn:hover {
-      background-color: var(--primary);
-      color: white;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: var(--card-shadow);
-      text-align: center;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: -40px; left: -40px;
-      width: 90px; height: 90px;
-      background: linear-gradient(135deg, #b9f6ca 0%, #1abc9c 100%);
-      opacity: 0.08;
-      border-radius: 50%;
-      z-index: 0;
-    }
-    .card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-    .service-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.8rem;
-      color: var(--primary);
-      box-shadow: 0 4px 8px rgba(39,174,96,0.08);
-    }
-    .card h3 { margin: 0.5rem 0; color: var(--primary-dark); font-size: 1.2rem;}
-    .service-desc { color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem; flex-grow: 1;}
-    .rating { color: var(--accent); font-size: 1rem; margin-bottom: 0.5rem;}
-    .price { color: var(--primary); font-weight:700; font-size:1.1rem; margin-bottom:1rem;}
-    .btn {
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: var(--transition);
-      cursor: pointer;
-      width: 100%;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      font-size: 1rem;
-    }
-    .btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .btn-call {
-      background: #e74c3c;
-    }
-    .btn-call:hover {
-      background: #c0392b;
-    }
-    .testimonial-section { margin: 3rem 0; }
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .testimonial {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: var(--card-shadow);
-    }
-    .testimonial-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .user-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: #e0f7fa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-    .testimonial-content {
-      color: var(--dark);
-      font-style: italic;
-      line-height: 1.7;
-    }
-    .testimonial-footer {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem;
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-    footer {
-      background: linear-gradient(135deg, #1a3c2a 0%, var(--primary-dark) 100%);
-      color: white;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .footer-column h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1.2rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    .footer-column h3::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 3px;
-      background-color: var(--accent);
-    }
-    .footer-links { list-style: none;}
-    .footer-links li { margin-bottom:0.8rem;}
-    .footer-links a {
-      color: #e0e0e0;
-      text-decoration: none;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .footer-links a:hover { color: white; transform: translateX(5px);}
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: rgba(255,255,255,0.1);
-      color: white;
-      font-size: 1.2rem;
-      transition: var(--transition);
-    }
-    .social-link:hover {
-      background-color: var(--accent);
-      transform: translateY(-3px);
-      color: var(--dark);
-    }
-    .copyright {
-      text-align: center;
-      padding-top: 2rem;
-      margin-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #b0bec5;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 768px) {
-      .nav-container { flex-direction: column; gap: 1rem; }
-      .quick-links { width:100%; justify-content:center;}
-      .input-group { flex-direction:column;}
-      .input-container { width:100%;}
-      .section-header { flex-direction:column; align-items:flex-start; gap:1rem;}
-      .category-filter { width:100%;}
-    }
-    @media (max-width: 480px) {
-      .logo h1 { font-size:1.5rem;}
-      header p { font-size:1rem;}
-      .quick-link { padding:0.4rem 0.8rem; font-size:0.8rem;}
-      .services { grid-template-columns:1fr;}
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Header -->
@@ -425,9 +24,9 @@
   <nav>
     <div class="nav-container">
       <div class="quick-links">
-        <a href="#services" class="quick-link"><i class="fas fa-bolt"></i> জরুরি সেবা</a>
-        <a href="#booking" class="quick-link"><i class="fas fa-calendar-check"></i> সেবা বুকিং</a>
-        <a href="#contact" class="quick-link"><i class="fas fa-headset"></i> সাহায্য চাই</a>
+        <a href="services.html" class="quick-link"><i class="fas fa-bolt"></i> জরুরি সেবা</a>
+        <a href="booking.html" class="quick-link"><i class="fas fa-calendar-check"></i> সেবা বুকিং</a>
+        <a href="contact.html" class="quick-link"><i class="fas fa-headset"></i> সাহায্য চাই</a>
       </div>
     </div>
   </nav>
@@ -492,7 +91,7 @@
             <span>(৪২ রিভিউ)</span>
           </div>
           <p class="price">শুরুতে ৳২০০</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=বিদ্যুৎ মেরামত" class="btn">বুক করুন</a>
         </div>
         <!-- Tailor Service -->
         <div class="card">
@@ -505,7 +104,7 @@
             <span>(৩৮ রিভিউ)</span>
           </div>
           <p class="price">শুরুতে ৳১৫০</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=দর্জি সেবা" class="btn">বুক করুন</a>
         </div>
         <!-- Medicine Delivery -->
         <div class="card">
@@ -518,7 +117,7 @@
             <span>(৬৫ রিভিউ)</span>
           </div>
           <p class="price">ডেলিভারি চার্জ ৳৩০</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=ওষুধ ডেলিভারি" class="btn">বুক করুন</a>
         </div>
         <!-- Home Tutor -->
         <div class="card">
@@ -531,7 +130,7 @@
             <span>(২৭ রিভিউ)</span>
           </div>
           <p class="price">শুরুতে ৳৩০০/ঘণ্টা</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=হোম টিউটর" class="btn">বুক করুন</a>
         </div>
         <!-- Transport -->
         <div class="card">
@@ -544,7 +143,7 @@
             <span>(৫৩ রিভিউ)</span>
           </div>
           <p class="price">শুরুতে ৳৫০</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=রিকশা/ভ্যান ভাড়া" class="btn">বুক করুন</a>
         </div>
         <!-- Cleaning Service -->
         <div class="card">
@@ -557,7 +156,7 @@
             <span>(৪৭ রিভিউ)</span>
           </div>
           <p class="price">শুরুতে ৳৫০০</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=বাড়ি পরিষ্কার" class="btn">বুক করুন</a>
         </div>
         <!-- Tube Well Repair -->
         <div class="card">
@@ -570,7 +169,7 @@
             <span>(৩৩ রিভিউ)</span>
           </div>
           <p class="price">শুরুতে ৳৩০০</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=টিউবওয়েল মেরামত" class="btn">বুক করুন</a>
         </div>
         <!-- Agriculture Advice -->
         <div class="card">
@@ -583,7 +182,7 @@
             <span>(১৮ রিভিউ)</span>
           </div>
           <p class="price">ফ্রি পরামর্শ</p>
-          <button class="btn">বুক করুন</button>
+          <a href="booking.html?service=কৃষি পরামর্শ" class="btn">বুক করুন</a>
         </div>
         <!-- Emergency Helpline -->
         <div class="card">
@@ -596,7 +195,7 @@
             <span>(৯৫ রিভিউ)</span>
           </div>
           <p class="price">ফ্রি</p>
-          <button class="btn btn-call">কল করুন</button>
+          <a href="tel:01700000000" class="btn btn-call">কল করুন</a>
         </div>
       </div>
     </section>
@@ -661,9 +260,9 @@
       <div class="footer-column">
         <h3><i class="fas fa-link"></i> গুরুত্বপূর্ণ লিঙ্ক</h3>
         <ul class="footer-links">
-          <li><a href="#services"><i class="fas fa-concierge-bell"></i> জনপ্রিয় সেবা</a></li>
-          <li><a href="#booking"><i class="fas fa-calendar-check"></i> সেবা বুকিং</a></li>
-          <li><a href="#contact"><i class="fas fa-headset"></i> সাহায্য চাই</a></li>
+          <li><a href="services.html"><i class="fas fa-concierge-bell"></i> জনপ্রিয় সেবা</a></li>
+          <li><a href="booking.html"><i class="fas fa-calendar-check"></i> সেবা বুকিং</a></li>
+          <li><a href="contact.html"><i class="fas fa-headset"></i> সাহায্য চাই</a></li>
         </ul>
       </div>
       <div class="footer-column">
