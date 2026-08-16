@@ -1,6 +1,6 @@
 #  সহজ সেবা
 
-একটি বাংলাদেশী স্থানীয় সেবা প্রদানকারী প্ল্যাটফর্ম যা গ্রামীণ এলাকার মানুষদের বিভিন্ন সেবার সাথে সংযুক্ত করে।
+একটি বাংলাদেশী স্থানীয় সেবা প্রদানকারী প্ল্যাটফর্ম যা গ্রামীণ এলাকার মানুষদের জন্য নিকটস্থ সেবা-প্রদান সহজ করে তোলে।
 
 ## 🌟 বৈশিষ্ট্যসমূহ
 
@@ -24,7 +24,7 @@
  🚀 প্রযুক্তি স্ট্যাক
 
 - **Frontend**: HTML5, CSS3, JavaScript
-- **CSS Framework**: Tailwind CSS
+- **CSS**: Custom CSS (css/style.css)
 - **Icons**: Font Awesome
 - **Authentication**: Firebase Auth
 - **Hosting**: GitHub Pages
@@ -51,7 +51,7 @@
 
  🛠️ ডেভেলপমেন্ট
 
- স্থানীয়ভাবে চালানো
+স্থানীয়ভাবে চালানো
 bash
 # Repository clone করুন
 git clone https://github.com/your-username/your-repo-name.git
@@ -65,7 +65,6 @@ python -m http.server 8000
 npx serve .
 
 # ব্রাউজারে http://localhost:8000 এ যান
-```
 
 ### Firebase কনফিগারেশন
 আপনার নিজস্ব Firebase প্রোজেক্ট সেটআপ করতে:

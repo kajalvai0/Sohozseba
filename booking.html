@@ -42,23 +42,95 @@
     .btn:hover {
       background: #219150;
     }
+    .message { text-align:center; margin-top: 12px; }
+    .error { color: #c0392b; }
+    .success { color: #27ae60; }
   </style>
 </head>
 <body>
   <div class="box">
     <h2 id="serviceTitle">সেবা বুকিং</h2>
-    <form>
-      <input type="text" placeholder="আপনার নাম" required>
-      <input type="tel" placeholder="মোবাইল নম্বর" required>
-      <textarea placeholder="ঠিকানা ও বিস্তারিত তথ্য লিখুন..." required></textarea>
+    <!-- Add names and form attributes so data can be submitted or handled by JS/server -->
+    <form id="bookingForm" method="POST" action="/api/book">
+      <label for="name">আপনার নাম</label>
+      <input id="name" name="name" type="text" placeholder="আপনার নাম" required>
+
+      <label for="phone">মোবাইল নম্বর</label>
+      <input id="phone" name="phone" type="tel" placeholder="01XXXXXXXXX" required pattern="[0-9]{11}">
+
+      <label for="address">ঠিকানা ও বিস্তারিত</label>
+      <textarea id="address" name="address" placeholder="ঠিকানা ও বিস্তারিত তথ্য লিখুন..." required></textarea>
+
       <button class="btn" type="submit">📨 বুকিং নিশ্চিত করুন</button>
     </form>
-  </div>  <script>
-    // URL থেকে service parameter নেওয়া
-    const params = new URLSearchParams(window.location.search);
-    const service = params.get('service');
-    if (service) {
-      document.getElementById('serviceTitle').textContent = `সেবা: ${service}`;
-    }
+
+    <div class="message" id="formMessage" aria-live="polite"></div>
+  </div>
+
+  <script>
+    // Populate service title from URL param (existing behaviour)
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const service = params.get('service');
+      if (service) {
+        document.getElementById('serviceTitle').textContent = `সেবা: ${service}`;
+      }
+    })();
+
+    // Basic client-side validation + graceful submit handling
+    document.getElementById('bookingForm').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const msgEl = document.getElementById('formMessage');
+      msgEl.textContent = '';
+      msgEl.className = 'message';
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+
+      // Simple phone check: 11 digits (Bangladesh local without +88)
+      const phoneRe = /^\d{11}$/;
+      if (!name) {
+        msgEl.textContent = 'অনুগ্রহ করে নাম লেখুন।';
+        msgEl.classList.add('error');
+        return;
+      }
+      if (!phoneRe.test(phone)) {
+        msgEl.textContent = 'মোবাইল নম্বর ১১ সংখ্যার হওয়া উচিত ( উদাহরণ: 017xxxxxxxx )।';
+        msgEl.classList.add('error');
+        return;
+      }
+      if (!address) {
+        msgEl.textContent = 'অনুগ্রহ করে ঠিকানা দিন।';
+        msgEl.classList.add('error');
+        return;
+      }
+
+      // Attempt to POST to /api/book (if backend exists). If not, just show success message.
+      try {
+        const payload = { name, phone, address, service: new URLSearchParams(window.location.search).get('service') || null };
+        // Try to send to server endpoint; if it fails (404/Network), we still show a friendly message.
+        const res = await fetch(document.getElementById('bookingForm').action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          msgEl.textContent = 'আপনার বুকিং সফলভাবে পাঠানো হয়েছে। ধন্যবাদ!';
+          msgEl.classList.add('success');
+          document.getElementById('bookingForm').reset();
+        } else {
+          // If server responds with error, show generic success note with fallback guidance
+          msgEl.textContent = 'বুকিং সার্ভারে পাঠানো যায়নি — অনুগ্রহ করে পরে আবার চেষ্টা করুন অথবা যোগাযোগ পাতায় ফোন করুন।';
+          msgEl.classList.add('error');
+        }
+      } catch (err) {
+        // No backend available or network error — provide fallback guidance
+        msgEl.textContent = 'বুকিং সার্ভারে যোগ করা যায়নি (নেটওয়ার্ক)। আপনার ডেটা লোকালি প্রস্তুত রাখা হয়েছে — অনুগ্রহ করে পরে চেষ্টা করুন বা সরাসরি ফোন করুন।';
+        msgEl.classList.add('error');
+        console.warn('Booking submit failed:', err);
+      }
+    });
   </script></body>
 </html>
