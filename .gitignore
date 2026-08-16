@@ -1,0 +1,3 @@
+# Ignore local secrets and generated logs
+functions/serviceAccountKey.json
+functions/bookings_local.json

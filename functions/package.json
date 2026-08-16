@@ -1,0 +1,17 @@
+{
+  "name": "sohozseba-functions",
+  "description": "Serverless function skeleton for Sohozseba bookings (Firebase Functions compatible).",
+  "version": "0.1.0",
+  "main": "index.js",
+  "engines": {
+    "node": "18"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.10.0",
+    "firebase-functions": "^4.4.0"
+  },
+  "scripts": {
+    "start": "npx firebase-functions-framework --target=bookService --port=9000",
+    "deploy": "firebase deploy --only functions:bookService"
+  }
+}
